@@ -1,30 +1,15 @@
+import 'react-bulma-components/dist/react-bulma-components.min.css';
+
 import { ApolloProvider } from '@apollo/client';
 import { NextPage } from 'next';
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { useApollo } from '../graphql/nextApollo';
-import { Page } from '../styles/pages/page';
 
 interface AppProps {
   Component: NextPage;
   pageProps: any;
 }
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
-
-const theme = {
-  colors: {
-    background: '#fafafa',
-    primary: '#0070f3',
-  },
-};
 
 export default function App({
   Component,
@@ -34,12 +19,7 @@ export default function App({
 
   return (
     <ApolloProvider client={apolloClient}>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Page>
-          <Component {...pageProps} />
-        </Page>
-      </ThemeProvider>
+      <Component {...pageProps} />
     </ApolloProvider>
   );
 }
