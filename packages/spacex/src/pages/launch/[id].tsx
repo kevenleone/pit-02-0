@@ -16,6 +16,10 @@ type LaunchProps = {
 const LaunchComponent: React.FC<LaunchProps> = ({ launch }) => {
   const router = useRouter();
 
+  if (router.isFallback) {
+    return <div>Page Loading</div>;
+  }
+
   return (
     <Page title={launch.mission_name} onClickBack={() => router.push('/')}>
       <Meta
@@ -34,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
 
   return {
-    fallback: false,
+    fallback: true,
     paths,
   };
 };
