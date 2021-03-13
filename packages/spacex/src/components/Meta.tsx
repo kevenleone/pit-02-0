@@ -32,23 +32,16 @@ const Meta: React.FC<MetaProps> = ({ description, image, title, url }) => {
 
       {url && (
         <>
-          <meta property="twitter:url" content="https://g1.globo.com/" />
-          <meta property="og:url" content="https://g1.globo.com/" />
+          <meta property="twitter:url" content={url} />
+          <meta property="og:url" content={url} />
         </>
       )}
 
       {image && (
         <>
-          <meta
-            property="og:image"
-            content="https://s.glbimg.com/jo/g1/static/live/imagens/img_facebook.png"
-          />
-
+          <meta property="og:image" content={image} />
           <meta property="twitter:card" content="summary_large_image" />
-          <meta
-            property="twitter:image"
-            content="https://s.glbimg.com/jo/g1/static/live/imagens/img_facebook.png"
-          />
+          <meta property="twitter:image" content={image} />
         </>
       )}
     </Head>

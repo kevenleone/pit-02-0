@@ -5,7 +5,7 @@ import Loading from './Loading';
 
 type PageProps = {
   title: string;
-  loading: boolean;
+  loading?: boolean;
   error?: any;
   onClickBack?: () => void;
 };
